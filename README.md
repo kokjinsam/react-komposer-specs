@@ -41,8 +41,14 @@ const ComposedClock = withHandlers({
 ```
 import { withState } from 'react-komposer-plus';
 
-const Counter = ({ state }) => (
-  <div>{state.counter}</div>  // displays 1
+const Counter = ({
+  state,
+  setState,
+}) => (
+  <div>
+    <span>{state.counter}</span>  // displays 1
+    <button onClick={() => setState({ counter: state.counter + 1 })}>+ 1</button>
+  </div>
 );
 
 const ComposedCounter = withState({
